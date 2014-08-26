@@ -1,11 +1,16 @@
+
 google.load('visualization', '1.0', {'packages':['corechart']});
 
+//$scope contains the model data, and connects the controller and the view. 
 angular.module('budgetApp', []).controller('BudgetController', ['$scope', function($scope) {
-
+     
+	//empty incomes array initially
 	$scope.incomes = [ ];
+	//set all total properties to 0 initially
 	$scope.incomeTotal=0;
 	$scope.expenseTotal=0;
 	$scope.leftTotal=0;
+	//incomeTypes array
 	$scope.incomeTypes = [
 	    {text:'Salary/Wages'},
 		{text:'Pension/Social Security'},
@@ -13,7 +18,29 @@ angular.module('budgetApp', []).controller('BudgetController', ['$scope', functi
 		{text:'Child Support/Alimony'},
 		{text:'Other Income'},
 	];
+	//empty expenses array initially
+	$scope.expenses = [ ];
+	//expenseTypes array
+	$scope.expenseTypes = [ 
+		{text:'Rent/Mortgage'},
+		{text:'Utilities'},
+		{text:'Internet/Cable/Phone'},
+		{text:'Insurance - Medical/Home/Car'},
+		{text:'Food'},
+		{text:'Childcare'},
+		{text:'Education'},
+		{text:'Transportation'},
+		{text:'Healthcare'},
+		{text:'Clothing'},
+		{text:'Personal Care - Cosmetics, Beauty'},
+		{text:'Entertainment'},
+		{text:'Credit Card/Loan'},
+		{text:'Savings'},
+		{text:'Charitable Contributions'},
+		{text:'Other'}
+	];
 	
+	/*this function is called on click of the add button in the income form, and invoked by ng-submit.  The input text and select value (category) are validated, and,if valid, the category selected is compared to all items in the incomes array, and if that category is already in the array, the amount is changed to reflect the input.  Otherwise the element is added to the incomes array, and the incomeTotal and leftTotal properties are updated. Updating the model then updates the view.*/
 	$scope.addIncome = function() {
 		if($scope.validateInput($scope.incomeAmount,$scope.selectedIncome)){
 			var categoryFound=false;
@@ -38,6 +65,7 @@ angular.module('budgetApp', []).controller('BudgetController', ['$scope', functi
 			
 		}
 	};
+	//this function removes the item with the income.remove property set to true.  The incomeTotal and leftTotal properties are updated.
     $scope.removeIncome = function() {
 		var currentIncomes = $scope.incomes;
 		$scope.incomes = [];
@@ -51,26 +79,8 @@ angular.module('budgetApp', []).controller('BudgetController', ['$scope', functi
 		if($scope.leftTotal>0){$('.leftTotal').css('color','#3C0')}
 			else{$('.leftTotal').css('color','#F00')}
 	};
-	$scope.expenses = [ ];
-	$scope.expenseTypes = [ 
-		{text:'Rent/Mortgage'},
-		{text:'Utilities'},
-		{text:'Internet/Cable/Phone'},
-		{text:'Insurance - Medical/Home/Car'},
-		{text:'Food'},
-		{text:'Childcare'},
-		{text:'Education'},
-		{text:'Transportation'},
-		{text:'Healthcare'},
-		{text:'Clothing'},
-		{text:'Personal Care - Cosmetics, Beauty'},
-		{text:'Entertainment'},
-		{text:'Credit Card/Loan'},
-		{text:'Savings'},
-		{text:'Charitable Contributions'},
-		{text:'Other'}
-	];
- 
+	
+ 	//this function sums all expense amounts and returns the total
 	$scope.totalExpenses = function() {
 		var total = 0;
 		console.log(total);
@@ -80,6 +90,7 @@ angular.module('budgetApp', []).controller('BudgetController', ['$scope', functi
 		return total;
 	};
 	
+	//this function sums all income amounts and returns the total
 	$scope.totalIncomes = function() {
 		var total = 0;
 		console.log(total);
@@ -88,7 +99,7 @@ angular.module('budgetApp', []).controller('BudgetController', ['$scope', functi
 		}
 		return total;
 	};
-	
+	/*this function is called on click of the add button in the expense form, and invoked by ng-submit.  The input text and select value 			    (category) are validated, and if valid, the category selected is compared to all items in the incomes array, and if the category already     exists, the amount is changed to reflect the input.  Otherwise the expense amount and selected category are added to the expense array, and the expenseTotal and leftTotal properties are updated.  Lastly the pie chart is redrawn to reflect the expenses update. Updating the model then updates the view.*/
 	$scope.addExpense = function() {
 		if($scope.validateInput($scope.expenseAmount,$scope.selectedExpense)){
 			var categoryFound=false;
@@ -112,7 +123,8 @@ angular.module('budgetApp', []).controller('BudgetController', ['$scope', functi
 			$scope.drawChart();
 		}
 	};
-	 $scope.removeExpense = function() {
+	//this function removes the item with the expense.remove property set to true from $scope.expenses.  The expenseTotal and leftTotal properties are updated, and the pie chart redrawn.  If there are no expenses left then the pie chart is hidden.
+  	 $scope.removeExpense = function() {
 		var currentExpenses = $scope.expenses;
 		$scope.expenses = [];
 		angular.forEach(currentExpenses, function(expense) {
@@ -131,6 +143,7 @@ angular.module('budgetApp', []).controller('BudgetController', ['$scope', functi
 			$('#chartDiv').hide();
 		}
 	};
+	//this function validates the input
 	$scope.validateInput=function(textField, selectOption){
 		 var errorString="";
 		 var pattern2 = /^\d+$/;
@@ -140,9 +153,10 @@ angular.module('budgetApp', []).controller('BudgetController', ['$scope', functi
 		 if (errorString==""){return true}
 		 else alert("Please correct the following errors:\n\n"+errorString);
 	}
+	//this function draws the pie chart
 	$scope.drawChart=function() {
 
-        // Create the data table.
+        // Create the data table from the $scope.expenses array
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Expense Type');
         data.addColumn('number', 'Amount');
@@ -157,7 +171,7 @@ angular.module('budgetApp', []).controller('BudgetController', ['$scope', functi
                        'width':600,
                        'height':400};
 
-        // Instantiate and draw our chart, passing in some options.
+        // Instantiate and draw the pie chart
         var chart = new google.visualization.PieChart(document.getElementById('chartDiv'));
         chart.draw(data, options);
 		$('#chartDiv').show();

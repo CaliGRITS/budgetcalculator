@@ -11,11 +11,12 @@
 	</head>
     <body>
      <div id="header"><h2>Monthly Budget Calculator</h2><em><span style="font-size:12px">This simple monthly budget calculator provides an overview of your personal monthly spending.  After adding at least one expense, an interactive pie chart will display providing a visual of where your money goes.<br/><br/><strong>To Use</strong>:  For each income or expense amount, enter the whole dollar amount, select the type, and click Add.</span> </em></div>
-    
+    <!--the behavior of this div will be managed using the BudgetController class-->
      <div ng-controller="BudgetController" id="budgetForm">
       
        <h3>Income</h3>
        		<div class="listDiv">
+            <!--Display all incomes input by the user as a list, with an option to remove each income-->
             <div ng-repeat="income in incomes">
             <div class="label">{{income.text}}:</div>
 				<div class="amount">${{income.amount}} <a href="#" class="remove" ng-click="income.remove=true; removeIncome();">Remove</a>
@@ -24,7 +25,7 @@
               
             </div>
             </div>
-    	
+    <!--form for adding each additional income source-->
     <form ng-submit="addIncome()">
     <input type="text" placeholder="add new income here" ng-model="incomeAmount">
  
@@ -36,6 +37,7 @@
     <h3>Expenses</h3>
   
       <div class="listDiv">
+      <!--Display all expenses input by the user as a list, with an option to remove each expense-->
       <div ng-repeat="expense in expenses">
             <div class="label">{{expense.text}}</div>
             <div class="amount">${{expense.amount}} <a href="#" class="remove" ng-click="expense.remove=true; removeExpense();">Remove</a></div>
@@ -43,7 +45,7 @@
                      
        </div>
        </div>
-       
+      <!--form for adding each additional expense-->
      <form ng-submit="addExpense()">
     <input type="text" placeholder="add new expense here" ng-model="expenseAmount">
 
@@ -55,6 +57,7 @@
     </form>
     <br/>
     <br/>
+    <!--Display total income, total expenses, and money to spend.-->
     <div style="width:300px">
     	<div class="label"><span class="incomeTotal"> Total Income</span>:</div><div class="amount"><span class="incomeTotal">$</span><span class="incomeTotal" id="incomeTotal">{{incomeTotal}}</span></div>
     	<br/>
@@ -63,7 +66,7 @@
   		<div class="label"> <strong> Money to Spend</strong>:</div><div class="amount"> <span class="leftTotal">$</span><span class="leftTotal" id="leftTotal">{{leftTotal}}</span></div>
    		</div>
    </div>
-   
+   <!--Container div for pie chart-->
        <div id="chartDiv"></div>
   
 
