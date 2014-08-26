@@ -16,7 +16,7 @@ budget.js - controller which controls the data of the app; also includes google 
 
 Please view the source of these files in the repository for additional comments added where necessary.
 
-ABOUT ANGULAR
+ABOUT ANGULAR*
 
 Angular is a javascript framework that extends HTML with new attributes called directives. Directives are all prefixed with "ng-".  Directives used in this app are:
 
@@ -38,8 +38,9 @@ In addition, in several places in the HTML app source code values are surrounded
 
 Angular binds the input or output of the page to an application model, and scope is the object that refers to this model.  Both controllers and directives have reference to the scope.
 
-ABOUT GOOGLE CHART
+ABOUT GOOGLE CHART+
 
 Google Chart tools are a variety of interactive charts and data tools that can be customized using the Google Visualization API.  This application uses the pie chart tool, and further customizes it in order to update the pie chart dynamically based on the expense data entered by the user.
 
-
+*Refer to https://angularjs.org/ for more info
++Refer to https://google-developers.appspot.com/chart/ for more info
