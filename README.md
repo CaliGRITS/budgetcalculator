@@ -34,7 +34,7 @@ ng-submit:binds angular expressions to onsubmit events
 
 ng-click: specify custom behavior when an element is clicked.
 
-Angular binds input or output parts of the page to an application model, and scope is the object that refers to this model.  Both controllers and directives have reference to the scope.
+Angular binds the input or output of the page to an application model, and scope is the object that refers to this model.  Both controllers and directives have reference to the scope.
 
 ABOUT GOOGLE CHART
 
