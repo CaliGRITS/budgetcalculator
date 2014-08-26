@@ -12,7 +12,7 @@ RELEVANT FILES
 
 budget.html - budget calculator application
 
-budget.js - controller which controls the data of the app
+budget.js - controller which controls the data of the app; also includes google chart code
 
 ABOUT ANGULAR
 
