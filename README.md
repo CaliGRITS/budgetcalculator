@@ -36,6 +36,6 @@ Angular binds input or output parts of the page to an application model, and sco
 
 ABOUT GOOGLE CHART
 
-Google Chart tools are a variety of interactive charts and data tools that can be customized using the Google Visualization API.  This application uses the pie chart tool, and further customizes it in order to update the data based on the expense data entered by the user.
+Google Chart tools are a variety of interactive charts and data tools that can be customized using the Google Visualization API.  This application uses the pie chart tool, and further customizes it in order to update the data dynamically based on the expense data entered by the user.
 
 
