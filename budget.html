@@ -1,0 +1,72 @@
+<!doctype html>
+  <html ng-app="budgetApp">
+    <head>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+ 	<script src="js/angular.min.js"></script>
+    <script src="js/budget.js"></script>
+    
+    <link href="css/styles.css" type="text/css" rel="stylesheet"/>
+	</head>
+    <body>
+     <div id="header"><h2>Monthly Budget Calculator</h2><em><span style="font-size:12px">This simple monthly budget calculator provides an overview of your personal monthly spending.  After adding at least one expense, an interactive pie chart will display providing a visual of where your money goes.<br/><br/><strong>To Use</strong>:  For each income or expense amount, enter the whole dollar amount, select the type, and click Add.</span> </em></div>
+    
+     <div ng-controller="BudgetController" id="budgetForm">
+      
+       <h3>Income</h3>
+       		<div class="listDiv">
+            <div ng-repeat="income in incomes">
+            <div class="label">{{income.text}}:</div>
+				<div class="amount">${{income.amount}} <a href="#" class="remove" ng-click="income.remove=true; removeIncome();">Remove</a>
+                 </div>
+			 <div style="clear:both"></div>
+              
+            </div>
+            </div>
+    	
+    <form ng-submit="addIncome()">
+    <input type="text" placeholder="add new income here" ng-model="incomeAmount">
+ 
+    <select ng-model="selectedIncome" ng-options="incomeType.text for incomeType in incomeTypes">
+      <option value="">-- Income Type --</option>
+    </select>
+    <input class="btn-primary" type="submit" value="add">
+    </form>
+    <h3>Expenses</h3>
+  
+      <div class="listDiv">
+      <div ng-repeat="expense in expenses">
+            <div class="label">{{expense.text}}</div>
+            <div class="amount">${{expense.amount}} <a href="#" class="remove" ng-click="expense.remove=true; removeExpense();">Remove</a></div>
+            <div style="clear:both"></div>
+                     
+       </div>
+       </div>
+       
+     <form ng-submit="addExpense()">
+    <input type="text" placeholder="add new expense here" ng-model="expenseAmount">
+
+    <select ng-model="selectedExpense"  ng-options="expenseType.text for expenseType in expenseTypes">
+      <option value="">-- Expense Type --</option>
+    </select>
+
+    <input class="btn-primary" type="submit" value="add">
+    </form>
+    <br/>
+    <br/>
+    <div style="width:300px">
+    	<div class="label"><span class="incomeTotal"> Total Income</span>:</div><div class="amount"><span class="incomeTotal">$</span><span class="incomeTotal" id="incomeTotal">{{incomeTotal}}</span></div>
+    	<br/>
+    	<div class="label"><span class="expenseTotal"> Total Expenses</span>:</div><div class="amount"><span class="expenseTotal">$</span><span class="expenseTotal" id="expenseTotal">{{expenseTotal}}</span></div>
+   	   <br/>
+  		<div class="label"> <strong> Money to Spend</strong>:</div><div class="amount"> <span class="leftTotal">$</span><span class="leftTotal" id="leftTotal">{{leftTotal}}</span></div>
+   		</div>
+   </div>
+   
+       <div id="chartDiv"></div>
+  
+
+  
+    </body>
+ </html>

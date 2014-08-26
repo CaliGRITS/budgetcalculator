@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	margin:0 auto;
+}
+#header{
+	
+	background: -moz-linear-gradient(center top , #fafafa, #f5f5f5) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #eee;
+    min-height: 44px;
+    padding: 12px;
+}
+.listDiv{
+	width:300px;
+	font-size:14px;
+	margin-bottom:5px;
+}
+a.remove{
+	font-size:10px;
+	text-decoration:none;
+	color:#999;
+	text-transform:uppercase;
+}
+.label{
+	float:left;
+}
+.amount{
+	float:right;
+	text-align:right;
+}
+.incomeTotal{
+	color:#3C0;
+	font-weight:bold;
+	text-align:right;
+}
+.expenseTotal{
+	font-weight:bold;
+	color:#F00;
+	text-align:right;
+}
+.leftTotal{
+	font-weight:bold;
+	text-align:right;
+}
+#budgetForm{
+  width:450px;
+  float:left;
+  position:relative;
+  padding-left:20px;
+  
+}
+#chartDiv{
+  float:left;
+  margin-right:20%
+}
