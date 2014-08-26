@@ -1,6 +1,6 @@
 budgetcalculator
 ================
-This is a simple monthly expense budget calculator single page application, built using the Angular framework and using Google Charts API. It allows a user to add as many or as few fields as needed, and displays an interactive pie chart once at least one expense is added. 
+This is a simple monthly expense budget calculator single page application, built using the Angular framework and using Google Charts API. It allows a user to add as many or as few fields as needed, and displays an interactive pie chart when at least one expense is added, which updates dynamically when expenses are added/removed. 
 
 This was built by me as a way to learn Angular.
 
