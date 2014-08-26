@@ -14,6 +14,8 @@ budget.html - budget calculator application
 
 budget.js - controller which controls the data of the app; also includes google chart code
 
+Please view the source of these files in the repository for additional comments added where necessary.
+
 ABOUT ANGULAR
 
 Angular is a javascript framework that extends HTML with new attributes called directives. Directives are all prefixed with "ng-".  Directives used in this app are:
@@ -36,6 +38,6 @@ Angular binds input or output parts of the page to an application model, and sco
 
 ABOUT GOOGLE CHART
 
-Google Chart tools are a variety of interactive charts and data tools that can be customized using the Google Visualization API.  This application uses the pie chart tool, and further customizes it in order to update the data dynamically based on the expense data entered by the user.
+Google Chart tools are a variety of interactive charts and data tools that can be customized using the Google Visualization API.  This application uses the pie chart tool, and further customizes it in order to update the pie chart dynamically based on the expense data entered by the user.
 
 
