@@ -23,7 +23,7 @@ angular.module('budgetApp', []).controller('BudgetController', ['$scope', functi
 	//expenseTypes array
 	$scope.expenseTypes = [ 
 		{text:'Rent/Mortgage'},
-		{text:'Utilities'},
+		{text:'Utilities'}, 
 		{text:'Internet/Cable/Phone'},
 		{text:'Insurance - Medical/Home/Car'},
 		{text:'Food'},
