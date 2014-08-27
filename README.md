@@ -43,4 +43,5 @@ ABOUT GOOGLE CHART+
 Google Chart tools are a variety of interactive charts and data tools that can be customized using the Google Visualization API.  This application uses the pie chart tool, and further customizes it in order to update the pie chart dynamically based on the expense data entered by the user.
 
 *Refer to https://angularjs.org/ for more info
+
 +Refer to https://google-developers.appspot.com/chart/ for more info
