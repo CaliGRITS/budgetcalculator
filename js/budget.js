@@ -40,7 +40,8 @@ angular.module('budgetApp', []).controller('BudgetController', ['$scope', functi
 		{text:'Other'}
 	];
 	
-	/*this function is called on click of the add button in the income form, and invoked by ng-submit.  The input text and select value (category) are validated, and,if valid, the category selected is compared to all items in the incomes array, and if that category is already in the array, the amount is changed to reflect the input.  Otherwise the element is added to the incomes array, and the incomeTotal and leftTotal properties are updated. Updating the model then updates the view.*/
+	/*this function is called on click of the add button in the income form, and invoked by ng-submit. 
+	The input text and select value (category) are validated, and,if valid, the category selected is compared to all items in the incomes array, and if that category is already in the array, the amount is changed to reflect the input.  Otherwise the element is added to the incomes array, and the incomeTotal and leftTotal properties are updated. Updating the model then updates the view.*/
 	$scope.addIncome = function() {
 		if($scope.validateInput($scope.incomeAmount,$scope.selectedIncome)){
 			var categoryFound=false;
@@ -99,7 +100,8 @@ angular.module('budgetApp', []).controller('BudgetController', ['$scope', functi
 		}
 		return total;
 	};
-	/*this function is called on click of the add button in the expense form, and invoked by ng-submit.  The input text and select value 			    (category) are validated, and if valid, the category selected is compared to all items in the incomes array, and if the category already     exists, the amount is changed to reflect the input.  Otherwise the expense amount and selected category are added to the expense array, and the expenseTotal and leftTotal properties are updated.  Lastly the pie chart is redrawn to reflect the expenses update. Updating the model then updates the view.*/
+	/*this function is called on click of the add button in the expense form, and invoked by ng-submit. 
+	The input text and select value   (category) are validated, and if valid, the category selected is compared to all items in the incomes array, and if the category already     exists, the amount is changed to reflect the input.  Otherwise the expense amount and selected category are added to the expense array, and the expenseTotal and leftTotal properties are updated.  Lastly the pie chart is redrawn to reflect the expenses update. Updating the model then updates the view.*/
 	$scope.addExpense = function() {
 		if($scope.validateInput($scope.expenseAmount,$scope.selectedExpense)){
 			var categoryFound=false;
