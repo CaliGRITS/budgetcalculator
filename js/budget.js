@@ -1,4 +1,4 @@
-// Load the Google Visualization API and the piechart package.
+//Load the Google Visualization API and the piechart package.
 google.load('visualization', '1.0', {'packages':['corechart']});
 
 //$scope contains the model data, and connects the controller and the view. 
