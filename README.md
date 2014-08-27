@@ -12,7 +12,7 @@ RELEVANT FILES
 
 budget.html - budget calculator application
 
-budget.js - controller which controls the data of the app; also includes google chart code
+js/budget.js - controller which controls the data of the app; also includes google chart code
 
 Please view the source of these files in the repository for additional comments added where necessary.
 
