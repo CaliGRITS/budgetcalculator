@@ -6,7 +6,7 @@ This was built by me as a way to learn Angular.
 
 DEMO
 
-This can be demoed at http://daniellec.byethost12.com/portfolio/budget.html 
+This can be demoed at http://daniellec.byethost12.com/portfolio/budget/budget.html 
 
 RELEVANT FILES
 
